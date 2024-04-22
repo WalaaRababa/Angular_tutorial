@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-      <div class="col-3" *ngFor="let item of _shared.heros">
+      <div class="col-6 col-sm-3" *ngFor="let item of _shared.heros">
         <div class="card mb-3"[ngClass]="{
             'low':item.power<=50,
             'meduim':item.power>50&&item.power<200,
