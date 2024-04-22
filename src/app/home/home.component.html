@@ -1,0 +1,42 @@
+<div>
+    <h1>hello {{user.name}}</h1>
+    <p>age is{{user.age}}</p>
+    <img [src]="user.image" width="300px">
+ <div>
+    <input type="text" [(ngModel)]="myName">
+    <button (click)="changeName()">click me to change name </button>
+ </div>
+<br>
+<div>
+    <button (click)="displyPic()">show image</button>
+    <button (click)="isDisplay=!isDisplay">show2 image</button>
+
+    <div>
+    <img *ngIf="!isDisplay" [src]="OnePiece" width="500px" height="300px"/>
+
+    </div>
+    
+</div>
+</div>
+<div>
+    <table>
+        <th>student Name</th> <th>student age</th>
+        <tr *ngFor="let student of students" [ngClass]="{
+'bg-danger':student.age>=28,
+'bg-warning':student.age<=28,
+'bg-success':student.age<=23 }">
+            <!-- <ng-container *ngIf="student.age>=28"> -->
+                <td >{{student.name}}</td>
+                <td>{{student.age}}</td>
+            <!-- </ng-container> -->
+            <!-- <td *ngIf="student.age>25">{{student.name}}</td>
+            <td *ngIf="student.age>25">{{student.age}}</td> -->
+        </tr>
+    </table>
+</div>
+<div [ngSwitch]="color">
+    <p *ngSwitchCase="'red'">this is color:red</p>
+    <p *ngSwitchCase="'yellow'">this is color:yellow</p>
+    <p *ngSwitchCase="'green'">this is color:green</p>
+
+</div>

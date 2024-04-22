@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+      <div class="col-3 mb-3">
+        <input
+          class="form-control m-1"
+          type="text"
+          [(ngModel)]="hero.name"
+          placeholder="hero name"
+        />
+      </div>
+      <div class="col-3">
+        <input
+          class="form-control m-1"
+          type="text"
+          [(ngModel)]="hero.power"
+          placeholder="hero power"
+        />
+      </div>
+      <div class="col-3">
+        <input
+          class="form-control m-1"
+          type="text"
+          [(ngModel)]="hero.urlImg"
+          placeholder="hero Img"
+        />
+      </div>
+      <div class="col-3">
+        <button (click)="ajout()" class="btn form-control  m-1">
+          Add Hero
+        </button>
+      </div>
+    </div>
+  </div>
