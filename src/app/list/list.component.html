@@ -1,26 +1,37 @@
 <div class="container">
-    <div class="row">
-      <!-- <div class="col-6 col-sm-3" *ngFor="let item of _shared.heros"> -->
-        <div class="col-6 col-sm-3" *ngFor="let item of heros">
-
-      <div class="card mb-3"[ngClass]="{
-            'low':item.power<=50,
-            'meduim':item.power>50&&item.power<200,
-            'high':item.power>200
-            
-        }" >
-          <div class="card-image">
-            <img [src]="item.image" alt="" class="card-img w-100 p-2" />
-          </div>
-          <div class="card-body">
-            <h5 class="card-text">{{ item.name }}</h5>
-            <p class="card-text">
-              <small class="text-body-secondary">{{ item.power }}</small>
-            </p>
-            <button (click)="deleteHero(item._id)" class="btn btn-danger">delete</button>
-            <button [routerLink]="['/update',item._id]"class="btn btn-info m-3">update</button>
-          </div>
+  <div class="row">
+    <!-- <div class="col-6 col-sm-3" *ngFor="let item of _shared.heros"> -->
+    <div class="col-6 col-sm-3" *ngFor="let item of heros">
+      <div
+        class="card mb-3"
+        [ngClass]="{
+          low: item.power <= 50,
+          meduim: item.power > 50 && item.power < 200,
+          high: item.power > 200
+        }"
+      >
+        <div class="card-image">
+          <!---phase using server without upload file-->
+          <!-- <img [src]="item.image" alt="" class="card-img w-100 p-2" /> -->
+          <img
+            [src]="'http://127.0.0.1:3000/getImage/' + item.image"
+            alt=""
+            class="card-img w-100 p-2"
+          />
+        </div>
+        <div class="card-body">
+          <h5 class="card-text">{{ item.name }}</h5>
+          <p class="card-text">
+            <small class="text-body-secondary">{{ item.power }}</small>
+          </p>
+          <button (click)="deleteHero(item._id)" class="btn btn-danger">
+            delete
+          </button>
+          <button [routerLink]="['/update', item._id]" class="btn btn-info m-3">
+            update
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>

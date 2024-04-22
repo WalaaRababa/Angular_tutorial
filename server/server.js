@@ -13,7 +13,7 @@ app.use(cors());
 app.use( '/hero' , heroRoute );
 
 
-app.use( '/getimage' , express.static('./upload')  );
+app.use( '/getImage' , express.static('./upload')  );
 
 
 app.listen(  

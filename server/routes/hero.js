@@ -24,7 +24,6 @@ const mystorage = multer.diskStorage(
 
 const upload = multer({ storage: mystorage })
 
-// ajout avec upload
 router.post( '/create' , upload.any('image') , ( req , res )=>{
     let dataFromPostman = req.body;
     let hero = new Hero( dataFromPostman );

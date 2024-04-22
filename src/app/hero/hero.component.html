@@ -17,12 +17,19 @@
         />
       </div>
       <div class="col-3">
-        <input
+        <!-- <input
           class="form-control m-1"
           type="text"
           [(ngModel)]="hero.image"
           placeholder="hero Img"
-        />
+        /> -->
+        <input
+        class="form-control m-1"
+        type="file"
+        (change)="selectImg($event)"
+        [(ngModel)]="image"
+        placeholder="hero Img"
+      />
       </div>
       <div class="col-3">
         <button (click)="add()" class="btn form-control  m-1">

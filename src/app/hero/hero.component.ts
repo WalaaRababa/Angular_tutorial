@@ -12,13 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
+  constructor(private _shared: SharedService) {}
   hero = {
     name: '',
-    image: '',
+    // image: '',
     power: 0,
   };
-
+image:any
   add() {
+    //!---phase without server
     // this._shared.heros.push(this.hero)
     // this.hero={
     //   name:'',
@@ -26,6 +28,8 @@ export class HeroComponent {
     //   power:0
 
     // }
+    //!---phase using server without upload file
+    /*
     this._shared.createNewHero(this.hero).subscribe(
       (res) => {
         console.log(res);
@@ -39,6 +43,25 @@ export class HeroComponent {
         console.log(err);
       }
     );
+    */
+   let formData=new FormData()
+   formData.append('name',this.hero.name)
+   formData.append('power',this.hero.power.toString())
+   formData.append('image',this.image)
+   this._shared.createNewHero(formData).subscribe(
+    (res) => {
+      console.log(res);
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
   }
-  constructor(private _shared: SharedService) {}
+   //!----phase upload data----
+  selectImg(event:any)
+    {
+this.image=event.target.files[0]
+console.log(this.image);
+
+    }
 }
