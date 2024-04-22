@@ -4,6 +4,7 @@ import { AvatarComponent } from './avatar/avatar.component';
 import { HeroComponent } from './hero/hero.component';
 import { ListComponent } from './list/list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { UpdatHeroComponent } from './updat-hero/updat-hero.component';
 
 export const routes: Routes = [
     {
@@ -16,6 +17,10 @@ export const routes: Routes = [
     {
         path:"add",
         component:HeroComponent
+    },
+    {
+        path:"update/:id",
+        component:UpdatHeroComponent
     },
     {
         path:"avatar",

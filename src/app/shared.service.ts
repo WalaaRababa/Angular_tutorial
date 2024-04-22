@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class SharedService {
 
-  constructor() { }
+  constructor(private http :HttpClient) { }
+  private url='http://127.0.0.1:3000/'
   heros:any[]=[
     {
       name:'peepp',
@@ -38,8 +40,27 @@ export class SharedService {
       power:180,
       urlImg:'https://assets.pokemon.com/assets/cms2/img/pokedex/full//700.png'
     },
-  
-   
-  
   ]
+
+  createNewHero(hero:any)
+  {
+     return this.http.post(this.url+`hero/add`,hero)
+  }
+  getAllHero()
+  {
+    return this.http.get(this.url+'hero/all')
+  }
+  deleteHero(id:any)
+  {
+    return this.http.delete(this.url+`hero/delete/${id}`)
+  }
+  readHeroById(id:any)
+  {
+    return this.http.get(this.url+`hero/getById/${id}`)
+  }
+  updateHeroById(hero:any,id:any)
+  {
+    return this.http.put(this.url+`hero/update/${id}`,hero)
+  }
+
 }
