@@ -5,6 +5,7 @@ import { HeroComponent } from './hero/hero.component';
 import { ListComponent } from './list/list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { UpdatHeroComponent } from './updat-hero/updat-hero.component';
+import { CounterComponent } from './counter/counter.component';
 
 export const routes: Routes = [
     {
@@ -26,7 +27,10 @@ export const routes: Routes = [
         path:"avatar",
         component:HomeComponent
     },
-    
+    {
+        path:"counter",
+        component:CounterComponent
+    },
     {
         path:"**",
         component:NotFoundComponent
